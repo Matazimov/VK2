@@ -18,6 +18,11 @@ if len(humans) > 0:
         if "response" in data:
             print(f"[blue]id{humans[i]}[/blue]: Удалил")
         elif "error" in data:
+            if data["error"]["error_code"] == 29:
+                print('[red]Достигнут количественный лимит на вызов метода[/red]'
+                      'Подробнее об ограничениях на количество вызовов см. на странице '
+                      'https://vk.com/dev/data_limits')
+                sys.exit()
             print(f"[blue]id{humans[i]}[/blue]: Не смог удалить")
         else:
             print("упс... произошла неизвестная ошибка")
