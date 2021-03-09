@@ -46,6 +46,11 @@ if len(humans) > 0:
             elif data["error"]["error_code"] == 1:
                 print("[green]Лимит на добавления в друзья[/green]")
                 sys.exit()
+            elif data["error"]["error_code"] == 29:
+                print('[red]Достигнут количественный лимит на вызов метода[/red]'
+                      'Подробнее об ограничениях на количество вызовов см. на странице '
+                      'https://vk.com/dev/data_limits')
+                sys.exit()
         else:
             print("упс... произошла неизвестная ошибка")
             sys.exit()
