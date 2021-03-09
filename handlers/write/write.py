@@ -53,6 +53,11 @@ while True:
                 sys.exit()
         elif data["error"]['error_code'] == 214:
             print("Сообщения временно запрещены")
+        elif data["error"]["error_code"] == 29:
+            print('[red]Достигнут количественный лимит на вызов метода[/red]'
+                  'Подробнее об ограничениях на количество вызовов см. на странице '
+                  'https://vk.com/dev/data_limits')
+            sys.exit()
     else:
         print("упс... произошла неизвестная ошибка")
         sys.exit()
