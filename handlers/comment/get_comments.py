@@ -6,7 +6,7 @@ import time
 import sys
 
 cls()
-owner_id = input(f"({first_name} {last_name}) Введите id группы/страницы: ")
+owner_id = input(f"({first_name} {last_name}) Введите id группы: ")
 
 
 def get_comment():
@@ -87,6 +87,11 @@ while True:
                 else:
                     print("упс... произошла неизвестная ошибка")
                     sys.exit()
+            elif comment["error"]["error_code"] == 29:
+                print('[red]Достигнут количественный лимит на вызов метода[/red]'
+                      'Подробнее об ограничениях на количество вызовов см. на странице '
+                      'https://vk.com/dev/data_limits')
+                sys.exit()
         else:
             print("упс... произошла неизвестная ошибка")
 
